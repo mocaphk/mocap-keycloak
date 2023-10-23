@@ -2,8 +2,8 @@
 
 For storing realm data and create keycloak container.
 
-[!WARNING]
-CONTAIN CONFIDENTIAL INFORMATION!
+> [!WARNING]  
+> CONTAIN CONFIDENTIAL INFORMATION!
 
 ## How to start
 
@@ -33,8 +33,8 @@ There are some default users that has already been created:
 1. `admin`, `lecturer`, `tutor`, and `student`. They have a role equals to their name.
 2. `eddie`, `harry`, `john`, and `edmond`. They have no role.
 
-[!NOTE]
-Their passwords are equal to their username.
+> [!NOTE]  
+> Their passwords are equal to their username.
 
 ## How to add roles to a user
 
