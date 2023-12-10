@@ -3,7 +3,7 @@
 For storing realm data and create keycloak container.
 
 > [!WARNING]  
-> CONTAIN CONFIDENTIAL INFORMATION!
+> The `mocap-dev-realm.json` is for development / demonstration only. DO NOT use this configuration in production.
 
 ## How to start
 
@@ -16,8 +16,7 @@ sudo docker build -t mocap/keycloak:latest .
 2.
 
 ```
-docker run --name mocap-keycloak -p 8888:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin
-mocap/keycloak:latest
+docker run --name mocap-keycloak -p 8888:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin mocap/keycloak:latest
 ```
 
 3. Go to `http://localhost:8888/`. Click **Adminstration Console**. The username and password are `admin` by default.
@@ -49,15 +48,15 @@ There are some default users that has already been created:
 1. Open terminal in the docker container. Type:
 
 ```
-/opt/keycloak/bin/kc.sh export --dir /opt/keycloak/data/import --realm mocap --users realm_file
+/opt/keycloak/bin/kc.sh export --dir /opt/keycloak/data/import --realm mocap-dev --users realm_file
 ```
 
-Now the realm data is in `/opt/keycloak/data/import/mocap-realm.json`
+Now the realm data is in `/opt/keycloak/data/import/mocap-dev-realm.json`
 
 2. To copy the file from the container to local machine, type the following on your local machine:
 
 ```
-docker cp <container_id>:/opt/keycloak/data/import/mocap-realm.json <local_destination>
+docker cp mocap-keycloak:/opt/keycloak/data/import/mocap-dev-realm.json <local_destination>
 ```
 
 ## How to find those environment variables related to keycloak
