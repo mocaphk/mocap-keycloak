@@ -1,0 +1,69 @@
+{
+    "name": "mocap-keycloak",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "build-theme-jar": "keycloakify",
+        "clone-resources": "copy-keycloak-resources-to-public",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "check-format": "prettier --check .",
+        "format": "prettier --write .",
+        "lint": "eslint . --ext .ts --ext .tsx",
+        "lint-and-fix": "eslint . --ext .ts --ext .tsx --fix"
+    },
+    "dependencies": {
+        "@emotion/react": "^11.11.1",
+        "@emotion/styled": "^11.11.0",
+        "@mui/icons-material": "^5.15.0",
+        "@mui/material": "^5.15.0",
+        "@types/react": "^18.2.43",
+        "@types/react-dom": "^18.2.17",
+        "autoprefixer": "^10.4.16",
+        "keycloakify": "^9.1.4",
+        "postcss-cli": "^11.0.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-scripts": "^5.0.1",
+        "tailwindcss": "^3.3.6",
+        "typescript": "^4.9.5"
+    },
+    "devDependencies": {
+        "@tsconfig/node18-strictest": "^1.0.0",
+        "@types/node": "^16.18.68",
+        "@typescript-eslint/eslint-plugin": "^5.47.1",
+        "@typescript-eslint/parser": "^5.47.1",
+        "eslint-config-google": "^0.14.0",
+        "eslint-config-prettier": "^8.6.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "prettier": "^2.8.3",
+        "typescript": "^4.9.4"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "keycloakify": {
+        "themeName": [
+            "mocap"
+        ],
+        "extraThemeProperties": [
+            "foo=bar"
+        ]
+    }
+}
