@@ -15,7 +15,7 @@ function ErrorMessage({ kcContext }: { kcContext: KcContext }) {
         <>
             {message !== undefined && (
                 <Alert className="w-full" severity="error">
-                    {message.summary}
+                    {message.summary.replaceAll("<br>", "\n")}
                 </Alert>
             )}
         </>

@@ -44,6 +44,7 @@ export const { getKcContext } = createGetKcContext<KcContextExtension>({
         },
         {
             pageId: "register.ftl",
+            message: { type: "error", summary: "This is an error" },
             authorizedMailDomains: [
                 "example.com",
                 "another-example.com",
@@ -67,7 +68,7 @@ export const { getKcContext } = createGetKcContext<KcContextExtension>({
 
 export const { kcContext } = getKcContext({
     // Uncomment to test the login page for development.
-    mockPageId: "login.ftl",
+    mockPageId: "register.ftl",
 });
 
 export type KcContext = NonNullable<

@@ -4,6 +4,7 @@ import type { KcContext } from "./kcContext";
 import { useI18n } from "./i18n";
 import "./KcApp.css";
 import ThemeProvider from "theme/ThemeProvider";
+import Register from "./pages/Register";
 
 const Template = lazy(() => import("./Template"));
 const DefaultTemplate = lazy(() => import("keycloakify/login/Template"));
@@ -45,6 +46,14 @@ export default function KcApp(props: { kcContext: KcContext }) {
                         case "login.ftl":
                             return (
                                 <Login
+                                    // eslint-disable-next-line @typescript-eslint/naming-convention
+                                    {...{ kcContext, i18n, Template, classes }}
+                                    doUseDefaultCss={false}
+                                />
+                            );
+                        case "register.ftl":
+                            return (
+                                <Register
                                     // eslint-disable-next-line @typescript-eslint/naming-convention
                                     {...{ kcContext, i18n, Template, classes }}
                                     doUseDefaultCss={false}

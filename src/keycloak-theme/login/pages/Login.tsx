@@ -23,7 +23,7 @@ export default function Login(
         document.title = "Sign In";
     }, []);
 
-    const { social, realm, url, auth, registrationDisabled } = kcContext;
+    const { social, realm, url, login, auth, registrationDisabled } = kcContext;
 
     const { msg, msgStr } = i18n;
 
@@ -34,12 +34,6 @@ export default function Login(
             e.preventDefault();
             setIsLoginButtonDisabled(true);
             const formElement = e.target as HTMLFormElement;
-            // Even if we login with email Keycloak expect username and password in
-            // the POST request.
-            formElement
-                .querySelector("input[name='email']")
-                ?.setAttribute("name", "username");
-
             formElement.submit();
         }
     );
@@ -112,6 +106,7 @@ export default function Login(
                                     color="secondary"
                                     type="text"
                                     autoFocus={true}
+                                    defaultValue={login.username}
                                     autoComplete="off"
                                 />
                             </Grid>
@@ -136,6 +131,9 @@ export default function Login(
                                         name="rememberMe"
                                         color="secondary"
                                         tabIndex={3}
+                                        defaultChecked={
+                                            login.rememberMe === "on"
+                                        }
                                     />
                                 }
                                 label={msg("rememberMe")}
