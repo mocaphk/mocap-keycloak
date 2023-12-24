@@ -38,16 +38,10 @@ COPY --from=keycloakify_jar_builder /opt/app/build_keycloak/target/mocap-keycloa
 
 USER root
 
-RUN mkdir -p /opt/keycloak_import/
+RUN mkdir -p /opt/keycloak/data/import
 
 # Make the realm configuration available for import
-COPY configs/mocap-dev-realm.json /opt/keycloak_import/
-
-# Import the realm and user of development environment
-RUN /opt/keycloak/bin/kc.sh import --file /opt/keycloak_import/mocap-dev-realm.json
+COPY realms/mocap-dev-realm.json /opt/keycloak/data/import
 
 # The Keycloak server is configured to listen on port 8080
 EXPOSE 8080
-
-# Import the realm on start-up
-CMD ["start-dev"]

@@ -12,13 +12,13 @@ If you are using Windows, you need to use WSL.
 1. Build the docker image.
 
 ```bash
-sudo docker build -t mocap/keycloak:latest .
+docker-compose build
 ```
 
 2. Run the docker image.
 
 ```bash
-docker run --name mocap-keycloak -p 8888:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin mocap/keycloak:latest
+docker-compose up
 ```
 
 3. Go to `http://localhost:8888/`. Click **Adminstration Console**. The username and password are `admin` by default.
@@ -60,6 +60,11 @@ Now the realm data is in `/opt/keycloak/data/import/mocap-dev-realm.json`
 ```bash
 docker cp mocap-keycloak:/opt/keycloak/data/import/mocap-dev-realm.json <local_destination>
 ```
+
+> [!WARNING]  
+> When importing data (in `Dockrerfile`), some data would be replaced by the environment variables. For example, `smtpServer.password` uses `SMTP_PASSWORD`.
+> Therefore, when you export the realm data, you will export secrets. DO NOT PUSH THOSE SECRETS TO THE REPOSITORY. Please replace those secrets with the enironment
+> variable respectively before pushing to the repository.
 
 ## How to find those environment variables related to keycloak
 
@@ -122,6 +127,7 @@ npm run build-theme-jar
 ```
 
 ### Developing the theme
+
 1. Install all dependencies.
 
 ```bash
@@ -129,16 +135,19 @@ npm install
 ```
 
 2. Clone all keycloak resources. You would see a folder `keycloak-resources` in `public` folder.
+
 ```bash
 npm run clone-resources
 ```
 
 3. Start the React app.
+
 ```bash
 npm run start
 ```
 
 4. Change the `mockPageId` in `src/keycloak-theme/login/kcContext.ts` based on which page you want to edit. For example, if you want to edit the login page, change the `mockPageId` to `login.ftl`.
+
 ```typescript
 export const { kcContext } = getKcContext({
     // Uncomment to test the login page for development.

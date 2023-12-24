@@ -1,0 +1,14 @@
+services:
+    keycloak:
+        build: .
+        container_name: mocap-keycloak
+        ports:
+            - 8888:8080 # web ui
+        environment:
+            SMTP_HOST: ${SMTP_HOST}
+            SMTP_PORT: ${SMTP_PORT}
+            SMTP_EMAIL: ${SMTP_EMAIL}
+            SMTP_PASSWORD: ${SMTP_PASSWORD}
+            KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN}
+            KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
+        command: "start-dev --import-realm"

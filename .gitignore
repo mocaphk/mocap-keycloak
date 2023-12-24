@@ -22,3 +22,5 @@ yarn-error.log*
 
 /build_keycloak
 /public/keycloak-resources
+
+.env
