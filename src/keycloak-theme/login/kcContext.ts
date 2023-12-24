@@ -63,12 +63,26 @@ export const { getKcContext } = createGetKcContext<KcContextExtension>({
                 exists: (fieldName: string) => fieldName === "email",
             },
         },
+        {
+            pageId: "login-verify-email.ftl",
+            locale: {
+                // When we test the login page we do it in french
+                currentLanguageTag: "en",
+            },
+            // Uncomment the following line for hiding the Alert message
+            // "message": undefined
+            // Uncomment the following line for showing an Error message
+            message: { type: "error", summary: "This is an error" },
+            user: {
+                email: "abc@abc.com",
+            },
+        },
     ],
 });
 
 export const { kcContext } = getKcContext({
     // Uncomment to test the login page for development.
-    mockPageId: "register.ftl",
+    mockPageId: "login-verify-email.ftl",
 });
 
 export type KcContext = NonNullable<

@@ -4,12 +4,13 @@ import type { KcContext } from "./kcContext";
 import { useI18n } from "./i18n";
 import "./KcApp.css";
 import ThemeProvider from "theme/ThemeProvider";
-import Register from "./pages/Register";
 
 const Template = lazy(() => import("./Template"));
 const DefaultTemplate = lazy(() => import("keycloakify/login/Template"));
 
 const Login = lazy(() => import("./pages/Login"));
+const Register = lazy(() => import("./pages/Register"));
+const LoginVerifyEmail = lazy(() => import("./pages/LoginVerifyEmail"));
 const Info = lazy(() => import("keycloakify/login/pages/Info"));
 
 // This is like adding classes to theme.properties
@@ -54,6 +55,14 @@ export default function KcApp(props: { kcContext: KcContext }) {
                         case "register.ftl":
                             return (
                                 <Register
+                                    // eslint-disable-next-line @typescript-eslint/naming-convention
+                                    {...{ kcContext, i18n, Template, classes }}
+                                    doUseDefaultCss={false}
+                                />
+                            );
+                        case "login-verify-email.ftl":
+                            return (
+                                <LoginVerifyEmail
                                     // eslint-disable-next-line @typescript-eslint/naming-convention
                                     {...{ kcContext, i18n, Template, classes }}
                                     doUseDefaultCss={false}

@@ -2,6 +2,7 @@ import type { PageProps } from "keycloakify/login/pages/PageProps";
 import type { KcContext } from "../kcContext";
 import type { I18n } from "../i18n";
 import { Box, Button, Grid, Link, TextField, Typography } from "@mui/material";
+import { useEffect } from "react";
 
 export default function Register(
     props: PageProps<Extract<KcContext, { pageId: "register.ftl" }>, I18n>
@@ -18,6 +19,10 @@ export default function Register(
     } = kcContext;
 
     const { msg, msgStr } = i18n;
+
+    useEffect(() => {
+        document.title = msgStr("registerTitle");
+    }, []);
 
     return (
         <Template

@@ -19,15 +19,15 @@ export default function Login(
 ) {
     const { kcContext, i18n, doUseDefaultCss, Template, classes } = props;
 
-    useEffect(() => {
-        document.title = "Sign In";
-    }, []);
-
     const { social, realm, url, login, auth, registrationDisabled } = kcContext;
 
     const { msg, msgStr } = i18n;
 
     const [isLoginButtonDisabled, setIsLoginButtonDisabled] = useState(false);
+
+    useEffect(() => {
+        document.title = msgStr("doLogIn");
+    }, []);
 
     const onSubmit = useConstCallback<FormEventHandler<HTMLFormElement>>(
         (e) => {
