@@ -6,6 +6,7 @@ import "./KcApp.css";
 import ThemeProvider from "theme/ThemeProvider";
 import LoginResetPassword from "./pages/LoginResetPassword";
 import LoginUpdatePassword from "./pages/LoginUpdatePassword";
+import Error from "./pages/Error";
 
 const Template = lazy(() => import("./Template"));
 const DefaultTemplate = lazy(() => import("keycloakify/login/Template"));
@@ -82,6 +83,13 @@ export default function KcApp(props: { kcContext: KcContext }) {
                             return (
                                 <LoginUpdatePassword
                                     // eslint-disable-next-line @typescript-eslint/naming-convention
+                                    {...{ kcContext, i18n, Template, classes }}
+                                    doUseDefaultCss={false}
+                                />
+                            );
+                        case "error.ftl":
+                            return (
+                                <Error // eslint-disable-next-line @typescript-eslint/naming-convention
                                     {...{ kcContext, i18n, Template, classes }}
                                     doUseDefaultCss={false}
                                 />
