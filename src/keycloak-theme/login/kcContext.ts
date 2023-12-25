@@ -77,12 +77,31 @@ export const { getKcContext } = createGetKcContext<KcContextExtension>({
                 email: "abc@abc.com",
             },
         },
+        {
+            pageId: "info.ftl",
+            locale: {
+                // When we test the login page we do it in french
+                currentLanguageTag: "en",
+            },
+            // Uncomment the following line for hiding the Alert message
+            // "message": undefined
+            // Uncomment the following line for showing an Error message
+            messageHeader: "This is info header",
+            message: {
+                type: "info",
+                summary: "The following actions are required:",
+            },
+            requiredActions: [
+                "UPDATE_PASSWORD",
+                "CONFIGURE_RECOVERY_AUTHN_CODES",
+            ],
+        },
     ],
 });
 
 export const { kcContext } = getKcContext({
     // Uncomment to test the login page for development.
-    mockPageId: "error.ftl",
+    mockPageId: "info.ftl",
 });
 
 export type KcContext = NonNullable<

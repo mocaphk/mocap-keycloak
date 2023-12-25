@@ -128,7 +128,7 @@ npm run build-theme-jar
 
 ### Developing the theme
 
-Currently not all the pages has custom theme. When developing the page, you need to know its structure. You can find the structure of the page [here](https://github.com/keycloak/keycloak/tree/78866df6d5053780bc9184fbdf7682f708147117/themes/src/main/resources/theme/base/login).
+Currently not all the pages has custom theme. When developing the page, you need to know its structure. You can find the structure of the page [here](https://github.com/keycloak/keycloak/tree/78866df6d5053780bc9184fbdf7682f708147117/themes/src/main/resources/theme/base/login) or [here](https://github.com/keycloakify/keycloakify/tree/main/src/login/pages).
 
 1. Install all dependencies.
 

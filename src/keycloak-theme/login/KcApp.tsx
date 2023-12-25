@@ -4,17 +4,16 @@ import type { KcContext } from "./kcContext";
 import { useI18n } from "./i18n";
 import "./KcApp.css";
 import ThemeProvider from "theme/ThemeProvider";
-import LoginResetPassword from "./pages/LoginResetPassword";
-import LoginUpdatePassword from "./pages/LoginUpdatePassword";
-import Error from "./pages/Error";
 
 const Template = lazy(() => import("./Template"));
-const DefaultTemplate = lazy(() => import("keycloakify/login/Template"));
 
+const Error = lazy(() => import("./pages/Error"));
+const Info = lazy(() => import("./pages/Info"));
 const Login = lazy(() => import("./pages/Login"));
-const Register = lazy(() => import("./pages/Register"));
 const LoginVerifyEmail = lazy(() => import("./pages/LoginVerifyEmail"));
-const Info = lazy(() => import("keycloakify/login/pages/Info"));
+const LoginResetPassword = lazy(() => import("./pages/LoginResetPassword"));
+const LoginUpdatePassword = lazy(() => import("./pages/LoginUpdatePassword"));
+const Register = lazy(() => import("./pages/Register"));
 
 // This is like adding classes to theme.properties
 // https://github.com/keycloak/keycloak/blob/11.0.3/themes/src/main/resources/theme/keycloak/login/theme.properties
@@ -97,10 +96,9 @@ export default function KcApp(props: { kcContext: KcContext }) {
                         // We choose to use the default Template for the Info page and to download the theme resources.
                         case "info.ftl":
                             return (
-                                <Info
-                                    {...{ kcContext, i18n, classes }}
-                                    Template={DefaultTemplate}
-                                    doUseDefaultCss={true}
+                                <Info // eslint-disable-next-line @typescript-eslint/naming-convention
+                                    {...{ kcContext, i18n, Template, classes }}
+                                    doUseDefaultCss={false}
                                 />
                             );
                         default:

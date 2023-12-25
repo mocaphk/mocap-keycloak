@@ -8,23 +8,22 @@ import type { I18n } from "./i18n";
 import { Box, Typography, Alert, Divider, Paper } from "@mui/material";
 import logo from "../../assets/logo.svg";
 
-function ErrorMessage({ kcContext }: { kcContext: KcContext }) {
+function Message({ kcContext }: { kcContext: KcContext }) {
     const { message } = kcContext;
 
+    if (message === undefined) return null;
+
     return (
-        <>
-            {message !== undefined && (
-                <Alert className="w-full" severity="error">
-                    {message.summary.replaceAll("<br>", "\n")}
-                </Alert>
-            )}
-        </>
+        <Alert className="w-full" severity={message.type}>
+            {message.summary.replaceAll("<br>", "\n")}
+        </Alert>
     );
 }
 
 export default function Template(props: TemplateProps<KcContext, I18n>) {
     const {
         displayInfo = false,
+        displayMessage = true,
         headerNode,
         infoNode = null,
         kcContext,
@@ -74,7 +73,7 @@ export default function Template(props: TemplateProps<KcContext, I18n>) {
                     {headerNode}
                 </Typography>
                 <Box className="flex flex-col items-center">
-                    <ErrorMessage kcContext={kcContext} />
+                    {displayMessage && <Message kcContext={kcContext} />}
                     {children}
                     {displayInfo && (
                         <>
