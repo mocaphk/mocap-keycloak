@@ -90,6 +90,7 @@ export default function Login(
             <Box className="w-full">
                 {realm.password && (
                     <Box
+                        id="kc-form-login"
                         component="form"
                         onSubmit={onSubmit}
                         action={url.loginAction}

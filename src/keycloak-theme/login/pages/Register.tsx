@@ -31,6 +31,7 @@ export default function Register(
         >
             <Box className="w-full">
                 <Box
+                    id="kc-register-form"
                     component="form"
                     action={url.registrationAction}
                     method="post"
