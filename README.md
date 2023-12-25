@@ -62,7 +62,7 @@ docker cp mocap-keycloak:/opt/keycloak/data/import/mocap-dev-realm.json <local_d
 ```
 
 3. Copy the file to `./realms`.
-4. Run `py ./src/scripts/removeRealmSensitiveData.py` to replace all sensitive data with environment variables.
+4. Run `cd src/scripts && py removeRealmSensitiveData.py` to replace all sensitive data with environment variables.
 
 > [!WARNING]  
 > When importing data (in `Dockrerfile`), some data would be replaced by the environment variables. For example, `smtpServer.password` uses `SMTP_PASSWORD`.
