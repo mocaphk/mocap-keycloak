@@ -13,6 +13,7 @@ const Login = lazy(() => import("./pages/Login"));
 const LoginVerifyEmail = lazy(() => import("./pages/LoginVerifyEmail"));
 const LoginResetPassword = lazy(() => import("./pages/LoginResetPassword"));
 const LoginUpdatePassword = lazy(() => import("./pages/LoginUpdatePassword"));
+const LoginPageExpired = lazy(() => import("./pages/LoginPageExpired"));
 const Register = lazy(() => import("./pages/Register"));
 
 // This is like adding classes to theme.properties
@@ -86,6 +87,14 @@ export default function KcApp(props: { kcContext: KcContext }) {
                                     doUseDefaultCss={false}
                                 />
                             );
+                        case "login-page-expired.ftl":
+                            return (
+                                <LoginPageExpired
+                                    // eslint-disable-next-line @typescript-eslint/naming-convention
+                                    {...{ kcContext, i18n, Template, classes }}
+                                    doUseDefaultCss={false}
+                                />
+                            );
                         case "error.ftl":
                             return (
                                 <Error // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -93,7 +102,6 @@ export default function KcApp(props: { kcContext: KcContext }) {
                                     doUseDefaultCss={false}
                                 />
                             );
-                        // We choose to use the default Template for the Info page and to download the theme resources.
                         case "info.ftl":
                             return (
                                 <Info // eslint-disable-next-line @typescript-eslint/naming-convention
