@@ -1,4 +1,18 @@
 {
+    "smtpServer": {
+        "password": "${SMTP_PASSWORD}",
+        "port": "${SMTP_PORT}",
+        "host": "${SMTP_HOST}",
+        "from": "${SMTP_EMAIL}",
+        "user": "${SMTP_EMAIL}",
+        "replyToDisplayName": "",
+        "starttls": "true",
+        "auth": "true",
+        "envelopeFrom": "",
+        "ssl": "false",
+        "replyTo": "",
+        "fromDisplayName": ""
+    },
     "id": "680ed45e-258b-437a-9f8b-2600f8e84ea3",
     "realm": "mocap-dev",
     "displayName": "mocap-dev",
@@ -1723,20 +1737,6 @@
         "contentSecurityPolicy": "frame-src 'self'; frame-ancestors 'self'; object-src 'none';",
         "xXSSProtection": "1; mode=block",
         "strictTransportSecurity": "max-age=31536000; includeSubDomains"
-    },
-    "smtpServer": {
-        "replyToDisplayName": "",
-        "starttls": "true",
-        "auth": "true",
-        "envelopeFrom": "",
-        "ssl": "false",
-        "password": "${SMTP_PASSWORD}",
-        "port": "${SMTP_PORT}",
-        "replyTo": "",
-        "host": "${SMTP_HOST}",
-        "from": "${SMTP_EMAIL}",
-        "fromDisplayName": "",
-        "user": "${SMTP_EMAIL}"
     },
     "loginTheme": "mocap",
     "accountTheme": "",

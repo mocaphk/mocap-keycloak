@@ -1,0 +1,9 @@
+{
+    "smtpServer": {
+        "password": "${SMTP_PASSWORD}",
+        "port": "${SMTP_PORT}",
+        "host": "${SMTP_HOST}",
+        "from": "${SMTP_EMAIL}",
+        "user": "${SMTP_EMAIL}"
+    }
+}

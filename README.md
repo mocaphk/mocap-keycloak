@@ -61,10 +61,16 @@ Now the realm data is in `/opt/keycloak/data/import/mocap-dev-realm.json`
 docker cp mocap-keycloak:/opt/keycloak/data/import/mocap-dev-realm.json <local_destination>
 ```
 
+3. Copy the file to `./realms`.
+4. Run `py ./src/scripts/removeRealmSensitiveData.py` to replace all sensitive data with environment variables.
+
 > [!WARNING]  
 > When importing data (in `Dockrerfile`), some data would be replaced by the environment variables. For example, `smtpServer.password` uses `SMTP_PASSWORD`.
 > Therefore, when you export the realm data, you will export secrets. DO NOT PUSH THOSE SECRETS TO THE REPOSITORY. Please replace those secrets with the enironment
-> variable respectively before pushing to the repository.
+> variable with the script above.
+
+> [!NOTE]  
+> You can check which values are replaced in `./realms/sensitive-data-map.json`.
 
 ## How to find those environment variables related to keycloak
 
