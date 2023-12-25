@@ -82,7 +82,7 @@ export const { getKcContext } = createGetKcContext<KcContextExtension>({
 
 export const { kcContext } = getKcContext({
     // Uncomment to test the login page for development.
-    mockPageId: "login-verify-email.ftl",
+    mockPageId: "login-update-password.ftl",
 });
 
 export type KcContext = NonNullable<
