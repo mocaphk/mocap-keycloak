@@ -1,18 +1,4 @@
 {
-    "smtpServer": {
-        "password": "${SMTP_PASSWORD}",
-        "port": "${SMTP_PORT}",
-        "host": "${SMTP_HOST}",
-        "from": "${SMTP_EMAIL}",
-        "user": "${SMTP_EMAIL}",
-        "replyToDisplayName": "",
-        "starttls": "true",
-        "auth": "true",
-        "envelopeFrom": "",
-        "ssl": "false",
-        "replyTo": "",
-        "fromDisplayName": ""
-    },
     "id": "680ed45e-258b-437a-9f8b-2600f8e84ea3",
     "realm": "mocap-dev",
     "displayName": "mocap-dev",
@@ -130,7 +116,7 @@
                 "description": "${role_default-roles}",
                 "composite": true,
                 "composites": {
-                    "realm": ["offline_access", "uma_authorization"],
+                    "realm": ["student", "offline_access", "uma_authorization"],
                     "client": {
                         "account": ["view-profile", "manage-account"]
                     }
@@ -573,6 +559,7 @@
         "containerId": "680ed45e-258b-437a-9f8b-2600f8e84ea3"
     },
     "requiredCredentials": ["password"],
+    "passwordPolicy": "length(8) and maxLength(32) and upperCase(1) and lowerCase(1) and digits(1)",
     "otpPolicyType": "totp",
     "otpPolicyAlgorithm": "HmacSHA1",
     "otpPolicyInitialCounter": 0,
@@ -581,9 +568,9 @@
     "otpPolicyPeriod": 30,
     "otpPolicyCodeReusable": false,
     "otpSupportedApplications": [
+        "totpAppGoogleName",
         "totpAppMicrosoftAuthenticatorName",
-        "totpAppFreeOTPName",
-        "totpAppGoogleName"
+        "totpAppFreeOTPName"
     ],
     "webAuthnPolicyRpEntityName": "keycloak",
     "webAuthnPolicySignatureAlgorithms": ["ES256"],
@@ -1738,6 +1725,20 @@
         "xXSSProtection": "1; mode=block",
         "strictTransportSecurity": "max-age=31536000; includeSubDomains"
     },
+    "smtpServer": {
+        "replyToDisplayName": "",
+        "starttls": "true",
+        "auth": "true",
+        "envelopeFrom": "",
+        "ssl": "false",
+        "password": "${SMTP_PASSWORD}",
+        "port": "${SMTP_PORT}",
+        "host": "${SMTP_HOST}",
+        "replyTo": "",
+        "from": "${SMTP_EMAIL}",
+        "fromDisplayName": "",
+        "user": "${SMTP_EMAIL}"
+    },
     "loginTheme": "mocap",
     "accountTheme": "",
     "adminTheme": "",
@@ -1807,13 +1808,13 @@
                 "config": {
                     "allowed-protocol-mapper-types": [
                         "oidc-sha256-pairwise-sub-mapper",
-                        "oidc-address-mapper",
-                        "saml-user-property-mapper",
-                        "oidc-full-name-mapper",
-                        "oidc-usermodel-attribute-mapper",
-                        "oidc-usermodel-property-mapper",
                         "saml-user-attribute-mapper",
-                        "saml-role-list-mapper"
+                        "oidc-full-name-mapper",
+                        "oidc-usermodel-property-mapper",
+                        "saml-role-list-mapper",
+                        "saml-user-property-mapper",
+                        "oidc-address-mapper",
+                        "oidc-usermodel-attribute-mapper"
                     ]
                 }
             },
@@ -1835,14 +1836,14 @@
                 "subComponents": {},
                 "config": {
                     "allowed-protocol-mapper-types": [
-                        "saml-user-property-mapper",
-                        "oidc-sha256-pairwise-sub-mapper",
+                        "oidc-usermodel-attribute-mapper",
                         "oidc-full-name-mapper",
+                        "oidc-address-mapper",
+                        "saml-user-property-mapper",
                         "oidc-usermodel-property-mapper",
                         "saml-user-attribute-mapper",
-                        "saml-role-list-mapper",
-                        "oidc-address-mapper",
-                        "oidc-usermodel-attribute-mapper"
+                        "oidc-sha256-pairwise-sub-mapper",
+                        "saml-role-list-mapper"
                     ]
                 }
             }
