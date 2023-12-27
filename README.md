@@ -7,25 +7,36 @@ For storing realm data and create keycloak container.
 
 ## How to start
 
-If you are using Windows, you need to use WSL.
+> [!INFO]  
+> If you are using Windows, you need to use Docker for WSL2.
 
 1. Build the docker image.
 
-```bash
-docker-compose build
-```
+    ```bash
+    docker-compose build
+    ```
 
-2. Run the docker image.
+2. Create a docker network `mocap` if you haven't already.
 
-```bash
-docker-compose up
-```
+    ```bash
+    docker network create mocap
+    ```
 
-3. Go to `http://localhost:8888/`. Click **Adminstration Console**. The username and password are `admin` by default.
+3. Create a copy of `.env.production` and rename it as `.env.production.local`.
 
-4. Choose `mocap` realm from the dropdown in the navigation bar on the left.
+4. Fill in all required environment variables.
 
-5. You can now configure the realm!
+5. Start the container.
+
+    ```bash
+    docker-compose up
+    ```
+
+6. Access the keycloak admin console with URL = `KEYCLOAK_HOST_URL`. Click **Adminstration Console**. The username and password are `KEYCLOAK_ADMIN` and `KEYCLOAK_ADMIN_PASSWORD` respectively.
+
+7. Choose `mocap-dev` realm from the dropdown in the navigation bar on the left.
+
+8. You can now configure the realm!
 
 ## Default users
 
@@ -49,17 +60,17 @@ There are some default users that has already been created:
 
 1. Open terminal in the docker container. Type:
 
-```bash
-/opt/keycloak/bin/kc.sh export --dir /opt/keycloak/data/import --realm mocap-dev --users realm_file
-```
+    ```bash
+    /opt/keycloak/bin/kc.sh export --dir /opt/keycloak/data/import --realm mocap-dev --users realm_file
+    ```
 
 Now the realm data is in `/opt/keycloak/data/import/mocap-dev-realm.json`
 
 2. To copy the file from the container to local machine, type the following on your local machine:
 
-```bash
-docker cp mocap-keycloak:/opt/keycloak/data/import/mocap-dev-realm.json <local_destination>
-```
+    ```bash
+    docker cp mocap-keycloak:/opt/keycloak/data/import/mocap-dev-realm.json <local_destination>
+    ```
 
 3. Copy the file to `./realms`.
 4. Run `cd src/scripts && py removeRealmSensitiveData.py` to replace all sensitive data with environment variables.
@@ -116,21 +127,21 @@ mvn --version
 
 1. Install all dependencies.
 
-```bash
-npm install
-```
+    ```bash
+    npm install
+    ```
 
 2. Build the React app.
 
-```bash
-npm run build
-```
+    ```bash
+    npm run build
+    ```
 
 3. Creating a `.jar` file for keycloak theme using keycloakify.
 
-```bash
-npm run build-theme-jar
-```
+    ```bash
+    npm run build-theme-jar
+    ```
 
 ### Developing the theme
 
@@ -138,27 +149,27 @@ Currently not all the pages has custom theme. When developing the page, you need
 
 1. Install all dependencies.
 
-```bash
-npm install
-```
+    ```bash
+    npm install
+    ```
 
 2. Clone all keycloak resources. You would see a folder `keycloak-resources` in `public` folder.
 
-```bash
-npm run clone-resources
-```
+    ```bash
+    npm run clone-resources
+    ```
 
 3. Start the React app.
 
-```bash
-npm run start
-```
+    ```bash
+    npm run start
+    ```
 
 4. Change the `mockPageId` in `src/keycloak-theme/login/kcContext.ts` based on which page you want to edit. For example, if you want to edit the login page, change the `mockPageId` to `login.ftl`.
 
-```typescript
-export const { kcContext } = getKcContext({
-    // Uncomment to test the login page for development.
-    mockPageId: "login.ftl",
-});
-```
+    ```typescript
+    export const { kcContext } = getKcContext({
+        // Uncomment to test the login page for development.
+        mockPageId: "login.ftl",
+    });
+    ```
