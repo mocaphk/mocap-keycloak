@@ -66,7 +66,10 @@ export default function Template(props: TemplateProps<KcContext, I18n>) {
                 </Typography>
             </Box>
             <Paper
-                className="w-[500px] min-w-[400px] m-10 -h-fit p-5 space-y-3"
+                className="w-[500px] min-w-[400px] m-10 h-fit p-5 space-y-3"
+                sx={{
+                    borderRadius: "16px",
+                }}
                 elevation={24}
             >
                 <Typography variant="h4" fontWeight="light">

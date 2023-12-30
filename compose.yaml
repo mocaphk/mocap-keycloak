@@ -16,7 +16,7 @@ services:
             - 8888:8080 # web ui
         restart: always
         command: start-dev --import-realm --hostname-url=$${KEYCLOAK_HOST_URL}
-        # Should have used this command instead but certificate is set up yet
+        # Should have used this command instead but certificate is not set up yet
         # command: "start --import-realm --hostname-url=$${KEYCLOAK_HOST_URL}"
 networks:
     mocap:
