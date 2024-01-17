@@ -14,7 +14,7 @@ RUN : \
     && :
 
 RUN : \
-    && wget https://www.apache.org/dist/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz -P /tmp \
+    && wget https://archive.apache.org/dist/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz -P /tmp \
     && tar xf /tmp/apache-maven-*.tar.gz -C /opt \
     && update-alternatives --install /usr/bin/mvn mvn /opt/apache-maven-3.9.6/bin/mvn 363 \
     && update-alternatives --config mvn \
