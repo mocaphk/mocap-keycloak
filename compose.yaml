@@ -15,9 +15,7 @@ services:
         ports:
             - 8888:8080 # web ui
         restart: always
-        command: start-dev --import-realm --hostname-url=$${KEYCLOAK_HOST_URL}
-        # Should have used this command instead but certificate is not set up yet
-        # command: "start --import-realm --hostname-url=$${KEYCLOAK_HOST_URL}"
+        command: start --import-realm --hostname-url=$${KEYCLOAK_HOSTNAME}$${KEYCLOAK_HOST_PATH} --http-relative-path=$${KEYCLOAK_HOST_PATH} --proxy edge
 networks:
     mocap:
         external: true
