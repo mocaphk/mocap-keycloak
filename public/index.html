@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#000000" />
+        <meta
+            name="description"
+            content="Web site created using create-react-app"
+        />
+        <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+        <!--
+          manifest.json provides metadata used when your web app is installed on a
+          user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+        -->
+        <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+        <link
+            rel="preload"
+            href="%PUBLIC_URL%/fonts/Inter-Thin.woff2?v=3.19"
+            as="font"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="%PUBLIC_URL%/fonts/Inter-Thin.woff?v=3.19"
+            as="font"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="%PUBLIC_URL%/fonts/Inter-ThinItalic.woff2?v=3.19"
+            as="font"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="%PUBLIC_URL%/fonts/Inter-ThinItalic.woff?v=3.19"
+            as="font"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="%PUBLIC_URL%/fonts/Inter-ExtraLight.woff2?v=3.19"
+            as="font"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="%PUBLIC_URL%/fonts/Inter-ExtraLight.woff?v=3.19"
+            as="font"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="%PUBLIC_URL%/fonts/Inter-ExtraLightItalic.woff2?v=3.19"
+            as="font"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="%PUBLIC_URL%/fonts/Inter-ExtraLightItalic.woff?v=3.19"
+            as="font"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="%PUBLIC_URL%/fonts/Inter-Light.woff2?v=3.19"
+            as="font"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="%PUBLIC_URL%/fonts/Inter-Light.woff?v=3.19"
+            as="font"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="%PUBLIC_URL%/fonts/Inter-LightItalic.woff2?v=3.19"
+            as="font"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="%PUBLIC_URL%/fonts/Inter-LightItalic.woff?v=3.19"
+            as="font"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="%PUBLIC_URL%/fonts/Inter-Regular.woff2?v=3.19"
+            as="font"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="%PUBLIC_URL%/fonts/Inter-Regular.woff?v=3.19"
+            as="font"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="%PUBLIC_URL%/fonts/Inter-Italic.woff2?v=3.19"
+            as="font"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="%PUBLIC_URL%/fonts/Inter-Italic.woff?v=3.19"
+            as="font"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="%PUBLIC_URL%/fonts/Inter-Medium.woff2?v=3.19"
+            as="font"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="%PUBLIC_URL%/fonts/Inter-Medium.woff?v=3.19"
+            as="font"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="%PUBLIC_URL%/fonts/Inter-MediumItalic.woff2?v=3.19"
+            as="font"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="%PUBLIC_URL%/fonts/Inter-MediumItalic.woff?v=3.19"
+            as="font"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="%PUBLIC_URL%/fonts/Inter-SemiBold.woff2?v=3.19"
+            as="font"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="%PUBLIC_URL%/fonts/Inter-SemiBold.woff?v=3.19"
+            as="font"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="%PUBLIC_URL%/fonts/Inter-SemiBoldItalic.woff2?v=3.19"
+            as="font"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="%PUBLIC_URL%/fonts/Inter-SemiBoldItalic.woff?v=3.19"
+            as="font"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="%PUBLIC_URL%/fonts/Inter-Bold.woff2?v=3.19"
+            as="font"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="%PUBLIC_URL%/fonts/Inter-Bold.woff?v=3.19"
+            as="font"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="%PUBLIC_URL%/fonts/Inter-BoldItalic.woff2?v=3.19"
+            as="font"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="%PUBLIC_URL%/fonts/Inter-BoldItalic.woff?v=3.19"
+            as="font"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="%PUBLIC_URL%/fonts/Inter-ExtraBold.woff2?v=3.19"
+            as="font"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="%PUBLIC_URL%/fonts/Inter-ExtraBold.woff?v=3.19"
+            as="font"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="%PUBLIC_URL%/fonts/Inter-ExtraBoldItalic.woff2?v=3.19"
+            as="font"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="%PUBLIC_URL%/fonts/Inter-ExtraBoldItalic.woff?v=3.19"
+            as="font"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="%PUBLIC_URL%/fonts/Inter-Black.woff2?v=3.19"
+            as="font"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="%PUBLIC_URL%/fonts/Inter-Black.woff?v=3.19"
+            as="font"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="%PUBLIC_URL%/fonts/Inter-BlackItalic.woff2?v=3.19"
+            as="font"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="%PUBLIC_URL%/fonts/Inter-BlackItalic.woff?v=3.19"
+            as="font"
+            crossorigin="anonymous"
+        />
+        <style>
+            @font-face {
+                font-family: "Inter";
+                font-style: normal;
+                font-weight: 100;
+                font-display: swap;
+                src: url("%PUBLIC_URL%/fonts/Inter-Thin.woff2?v=3.19")
+                        format("woff2"),
+                    url("%PUBLIC_URL%/fonts/Inter-Thin.woff?v=3.19")
+                        format("woff");
+            }
+            @font-face {
+                font-family: "Inter";
+                font-style: italic;
+                font-weight: 100;
+                font-display: swap;
+                src: url("%PUBLIC_URL%/fonts/Inter-ThinItalic.woff2?v=3.19")
+                        format("woff2"),
+                    url("%PUBLIC_URL%/fonts/Inter-ThinItalic.woff?v=3.19")
+                        format("woff");
+            }
+
+            @font-face {
+                font-family: "Inter";
+                font-style: normal;
+                font-weight: 200;
+                font-display: swap;
+                src: url("%PUBLIC_URL%/fonts/Inter-ExtraLight.woff2?v=3.19")
+                        format("woff2"),
+                    url("%PUBLIC_URL%/fonts/Inter-ExtraLight.woff?v=3.19")
+                        format("woff");
+            }
+            @font-face {
+                font-family: "Inter";
+                font-style: italic;
+                font-weight: 200;
+                font-display: swap;
+                src: url("%PUBLIC_URL%/fonts/Inter-ExtraLightItalic.woff2?v=3.19")
+                        format("woff2"),
+                    url("%PUBLIC_URL%/fonts/Inter-ExtraLightItalic.woff?v=3.19")
+                        format("woff");
+            }
+
+            @font-face {
+                font-family: "Inter";
+                font-style: normal;
+                font-weight: 300;
+                font-display: swap;
+                src: url("%PUBLIC_URL%/fonts/Inter-Light.woff2?v=3.19")
+                        format("woff2"),
+                    url("%PUBLIC_URL%/fonts/Inter-Light.woff?v=3.19")
+                        format("woff");
+            }
+            @font-face {
+                font-family: "Inter";
+                font-style: italic;
+                font-weight: 300;
+                font-display: swap;
+                src: url("%PUBLIC_URL%/fonts/Inter-LightItalic.woff2?v=3.19")
+                        format("woff2"),
+                    url("%PUBLIC_URL%/fonts/Inter-LightItalic.woff?v=3.19")
+                        format("woff");
+            }
+
+            @font-face {
+                font-family: "Inter";
+                font-style: normal;
+                font-weight: 400;
+                font-display: swap;
+                src: url("%PUBLIC_URL%/fonts/Inter-Regular.woff2?v=3.19")
+                        format("woff2"),
+                    url("%PUBLIC_URL%/fonts/Inter-Regular.woff?v=3.19")
+                        format("woff");
+            }
+            @font-face {
+                font-family: "Inter";
+                font-style: italic;
+                font-weight: 400;
+                font-display: swap;
+                src: url("%PUBLIC_URL%/fonts/Inter-Italic.woff2?v=3.19")
+                        format("woff2"),
+                    url("%PUBLIC_URL%/fonts/Inter-Italic.woff?v=3.19")
+                        format("woff");
+            }
+
+            @font-face {
+                font-family: "Inter";
+                font-style: normal;
+                font-weight: 500;
+                font-display: swap;
+                src: url("%PUBLIC_URL%/fonts/Inter-Medium.woff2?v=3.19")
+                        format("woff2"),
+                    url("%PUBLIC_URL%/fonts/Inter-Medium.woff?v=3.19")
+                        format("woff");
+            }
+            @font-face {
+                font-family: "Inter";
+                font-style: italic;
+                font-weight: 500;
+                font-display: swap;
+                src: url("%PUBLIC_URL%/fonts/Inter-MediumItalic.woff2?v=3.19")
+                        format("woff2"),
+                    url("%PUBLIC_URL%/fonts/Inter-MediumItalic.woff?v=3.19")
+                        format("woff");
+            }
+
+            @font-face {
+                font-family: "Inter";
+                font-style: normal;
+                font-weight: 600;
+                font-display: swap;
+                src: url("%PUBLIC_URL%/fonts/Inter-SemiBold.woff2?v=3.19")
+                        format("woff2"),
+                    url("%PUBLIC_URL%/fonts/Inter-SemiBold.woff?v=3.19")
+                        format("woff");
+            }
+            @font-face {
+                font-family: "Inter";
+                font-style: italic;
+                font-weight: 600;
+                font-display: swap;
+                src: url("%PUBLIC_URL%/fonts/Inter-SemiBoldItalic.woff2?v=3.19")
+                        format("woff2"),
+                    url("%PUBLIC_URL%/fonts/Inter-SemiBoldItalic.woff?v=3.19")
+                        format("woff");
+            }
+
+            @font-face {
+                font-family: "Inter";
+                font-style: normal;
+                font-weight: 700;
+                font-display: swap;
+                src: url("%PUBLIC_URL%/fonts/Inter-Bold.woff2?v=3.19")
+                        format("woff2"),
+                    url("%PUBLIC_URL%/fonts/Inter-Bold.woff?v=3.19")
+                        format("woff");
+            }
+            @font-face {
+                font-family: "Inter";
+                font-style: italic;
+                font-weight: 700;
+                font-display: swap;
+                src: url("%PUBLIC_URL%/fonts/Inter-BoldItalic.woff2?v=3.19")
+                        format("woff2"),
+                    url("%PUBLIC_URL%/fonts/Inter-BoldItalic.woff?v=3.19")
+                        format("woff");
+            }
+
+            @font-face {
+                font-family: "Inter";
+                font-style: normal;
+                font-weight: 800;
+                font-display: swap;
+                src: url("%PUBLIC_URL%/fonts/Inter-ExtraBold.woff2?v=3.19")
+                        format("woff2"),
+                    url("%PUBLIC_URL%/fonts/Inter-ExtraBold.woff?v=3.19")
+                        format("woff");
+            }
+            @font-face {
+                font-family: "Inter";
+                font-style: italic;
+                font-weight: 800;
+                font-display: swap;
+                src: url("%PUBLIC_URL%/fonts/Inter-ExtraBoldItalic.woff2?v=3.19")
+                        format("woff2"),
+                    url("%PUBLIC_URL%/fonts/Inter-ExtraBoldItalic.woff?v=3.19")
+                        format("woff");
+            }
+
+            @font-face {
+                font-family: "Inter";
+                font-style: normal;
+                font-weight: 900;
+                font-display: swap;
+                src: url("%PUBLIC_URL%/fonts/Inter-Black.woff2?v=3.19")
+                        format("woff2"),
+                    url("%PUBLIC_URL%/fonts/Inter-Black.woff?v=3.19")
+                        format("woff");
+            }
+            @font-face {
+                font-family: "Inter";
+                font-style: italic;
+                font-weight: 900;
+                font-display: swap;
+                src: url("%PUBLIC_URL%/fonts/Inter-BlackItalic.woff2?v=3.19")
+                        format("woff2"),
+                    url("%PUBLIC_URL%/fonts/Inter-BlackItalic.woff?v=3.19")
+                        format("woff");
+            }
+        </style>
+        <!--
+          Notice the use of %PUBLIC_URL% in the tags above.
+          It will be replaced with the URL of the `public` folder during the build.
+          Only files inside the `public` folder can be referenced from the HTML.
+
+          Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+          work correctly both with client-side routing and a non-root public URL.
+          Learn how to configure a non-root public URL by running `npm run build`.
+        -->
+        <title>Mocap</title>
+    </head>
+    <body>
+        <noscript>You need to enable JavaScript to run this app.</noscript>
+        <div id="root"></div>
+        <!--
+          This HTML file is a template.
+          If you open it directly in the browser, you will see an empty page.
+
+          You can add webfonts, meta tags, or analytics to this file.
+          The build step will place the bundled scripts into the <body> tag.
+
+          To begin the development, run `npm start` or `yarn start`.
+          To create a production bundle, use `npm run build` or `yarn build`.
+        -->
+    </body>
+</html>
