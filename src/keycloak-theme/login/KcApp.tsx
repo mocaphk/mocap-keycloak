@@ -18,6 +18,7 @@ const Register = lazy(() => import("./pages/Register"));
 
 // This is like adding classes to theme.properties
 // https://github.com/keycloak/keycloak/blob/11.0.3/themes/src/main/resources/theme/keycloak/login/theme.properties
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const classes: PageProps<any, any>["classes"] = {
     // NOTE: The classes are defined in ./KcApp.css
     kcHtmlClass: "my-root-class h-full",
