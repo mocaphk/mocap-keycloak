@@ -10,10 +10,65 @@ For storing realm data and create keycloak container.
 > [!INFO]  
 > If you are using Windows, you need to use Docker for WSL2.
 
-1. Build the docker image.
+### Start On Server
+
+For some reason, our server cannot build the theme `jar` file when building the image. Therefore, we need to build the `jar` file in local and pass it into the docker image.
+
+1. Install maven locally.
+
+    ```bash
+    sudo wget https://archive.apache.org//dist/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz -P /tmp
+    sudo tar xf /tmp/apache-maven-*.tar.gz -C /opt
+    sudo update-alternatives --install /usr/bin/mvn mvn /opt/apache-maven-3.9.6/bin/mvn 363
+    sudo update-alternatives --config mvn
+    ```
+
+2. Install packages.
+
+    ```bash
+    npm install
+    ```
+
+3. Build the theme `jar`.
+
+    ```bash
+    npm run build && npm run build-theme-jar
+    ```
+
+4. Build the image.
 
     ```bash
     docker-compose build
+    ```
+
+5. Create a docker network `mocap` if you haven't already.
+
+    ```bash
+    docker network create mocap
+    ```
+
+6. Create a copy of `.env.production` and rename it as `.env.production.local`.
+
+7. Fill in all required environment variables.
+
+8. Start the container.
+
+    ```bash
+    docker-compose up
+    ```
+
+9. Access the keycloak admin console with URL = `KEYCLOAK_HOST_URL`. Click **Adminstration Console**. The username and password are `KEYCLOAK_ADMIN` and `KEYCLOAK_ADMIN_PASSWORD` respectively.
+
+10. Choose `mocap-dev` realm from the dropdown in the navigation bar on the left.
+
+11. You can now configure the realm!
+
+### Start On Local
+
+1. Build the image.
+
+    ```bash
+    TARGET=main docker-compose build
     ```
 
 2. Create a docker network `mocap` if you haven't already.
@@ -113,31 +168,28 @@ To build the custom theme, **maven** is needed.
 > [!WARNING]  
 > Do not download maven with apt package manager because it does not work for some reason.
 
-```bash
-wget https://www.apache.org/dist/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz -P /tmp
+1. Install maven locally.
 
-sudo tar xf /tmp/apache-maven-*.tar.gz -C /opt
+    ```bash
+    sudo wget https://archive.apache.org//dist/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz -P /tmp
+    sudo tar xf /tmp/apache-maven-*.tar.gz -C /opt
+    sudo update-alternatives --install /usr/bin/mvn mvn /opt/apache-maven-3.9.6/bin/mvn 363
+    sudo update-alternatives --config mvn
+    ```
 
-sudo update-alternatives --install /usr/bin/mvn mvn /opt/apache-maven-3.9.6/bin/mvn 363
-
-sudo update-alternatives --config mvn
-
-mvn --version
-```
-
-1. Install all dependencies.
+2. Install all dependencies.
 
     ```bash
     npm install
     ```
 
-2. Build the React app.
+3. Build the React app.
 
     ```bash
     npm run build
     ```
 
-3. Creating a `.jar` file for keycloak theme using keycloakify.
+4. Creating a `.jar` file for keycloak theme using keycloakify.
 
     ```bash
     npm run build-theme-jar

@@ -29,7 +29,7 @@ RUN npm ci
 
 RUN npm run build && npm run build-theme-jar
 
-FROM quay.io/keycloak/keycloak:22.0.4
+FROM quay.io/keycloak/keycloak:22.0.4 as main
 
 WORKDIR /opt/keycloak
 
@@ -39,3 +39,16 @@ COPY --from=keycloakify_jar_builder --chown=keycloak:keycloak /opt/app/build_key
 # Make the realm configuration available for import
 RUN mkdir -p /opt/keycloak/data/import
 COPY --chown=keycloak:keycloak realms/mocap-dev-realm.json  /opt/keycloak/data/import
+
+# Build the image using the local built files from build and build_keycloak folder
+
+FROM quay.io/keycloak/keycloak:22.0.4 as local
+
+WORKDIR /opt/keycloak
+
+# Copy the theme jar to builder
+COPY --chown=keycloak:keycloak ../../build_keycloak/target/mocap-keycloak-theme-0.1.0.jar /opt/keycloak/providers
+
+# Make the realm configuration available for import
+RUN mkdir -p /opt/keycloak/data/import
+COPY --chown=keycloak:keycloak ../../realms/mocap-dev-realm.json  /opt/keycloak/data/import
