@@ -16,7 +16,7 @@ services:
         ports:
             - 8888:8080 # web ui
         restart: always
-        command: start --import-realm --hostname-url=$${KEYCLOAK_HOSTNAME}$${KEYCLOAK_HOST_PATH} --http-relative-path=$${KEYCLOAK_HOST_PATH} --proxy edge
+        command: start --import-realm --hostname-url=$${KEYCLOAK_HOSTNAME}$${KEYCLOAK_HOST_PATH} --http-relative-path=$${KEYCLOAK_HOST_PATH} --proxy edge --db postgres --db-url=$${DATABASE_URL} --db-username=$${DATABASE_USERNAME} --db-password=$${DATABASE_PASSWORD}
 networks:
     mocap:
         external: true
