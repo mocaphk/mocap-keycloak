@@ -1,18 +1,35 @@
 # mocap-keycloak
 
-For storing realm data and create keycloak container.
+[![Build Docker Image Badge](https://github.com/mocaphk/mocap-keycloak/actions/workflows/build-docker-image.yaml/badge.svg)](https://github.com/mocaphk/mocap-keycloak/actions/workflows/build-docker-image.yaml)
+[![Build Badge](https://github.com/mocaphk/mocap-keycloak/actions/workflows/build.yaml/badge.svg)](https://github.com/mocaphk/mocap-keycloak/actions/workflows/build.yaml)
+[![Eslint Badge](https://github.com/mocaphk/mocap-keycloak/actions/workflows/eslint.yaml/badge.svg)](https://github.com/mocaphk/mocap-keycloak/actions/workflows/eslint.yaml)
+[![Format Badge](https://github.com/mocaphk/mocap-keycloak/actions/workflows/format.yaml/badge.svg)](https://github.com/mocaphk/mocap-keycloak/actions/workflows/format.yaml)
+
+## What is MOCAP
+
+![MOCAP demo](./.github/assets/demo.gif)
+
+Multipurpose Online Coding Assessment Platform (MOCAP) is a web-based platform that aims to eliminate the need for students to individually configure their coding environments when completing course coding assignments.
+
+To complete course coding assignments, students need to set up a coding environment on their local machines. However, issues might arise when setting up the environment due to discrepancies in libraries, dependencies, operating systems, and hardware. These differences can lead to problems when running assignments in markers' environments, resulting in disputes between students and teachers.
+
+To address this problem, MOCAP provides a solution by hosting a web platform that offers a customizable coding environment using Docker. Docker ensures environment consistency and replicability, thereby eliminating the problems arising from discrepancies in libraries, dependencies, and operating systems.
+
+## What is mocap-keycloak
+
+mocap-keycloak is the Identity and access management (IAM) system of our MOCAP system. It is written in Keycloak, Typescript, and React.
+
+## Getting Started
 
 > [!WARNING]  
 > The `mocap-dev-realm.json` is for development / demonstration only. DO NOT use this configuration in production.
 
-## How to start
-
 > [!INFO]  
 > If you are using Windows, you need to use Docker for WSL2.
 
-### Start On Server
+### Build theme jar on local and pass it in Docker image
 
-For some reason, our server cannot build the theme `jar` file when building the image. Therefore, we need to build the `jar` file in local and pass it into the docker image.
+Our server cannot build the theme `jar` file when building the image because of insufficient memory. Therefore, we need to build the `jar` file in local and pass it into the docker image.
 
 1. Install maven locally.
 
@@ -63,7 +80,7 @@ For some reason, our server cannot build the theme `jar` file when building the 
 
 11. You can now configure the realm!
 
-### Start On Local
+### Build theme jar directly in Docker image
 
 1. Build the image.
 
@@ -138,28 +155,7 @@ Now the realm data is in `/opt/keycloak/data/import/mocap-dev-realm.json`
 > [!NOTE]  
 > You can check which values are replaced in `./realms/sensitive-data-map.json`.
 
-## How to find those environment variables related to keycloak
-
-### Frontend
-
-| Environment Variable     | Value / Where to find them                                                                                    |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------- |
-| `KEYCLOAK_URL`           | `http://localhost:8888/`                                                                                      |
-| `KEYCLOAK_CLIENT_ID`     | `mocap-frontend` (Can be found in **Clients** -> **Clients list**)                                            |
-| `KEYCLOAK_CLIENT_SECRET` | Can be found in **Clients** -> **Clients list** -> **mocap-frontend** -> **Credentials** -> **Client secret** |
-| `KEYCLOAK_REALM`         | `mocap`                                                                                                       |
-
-### Backend
-
-| Environment Variable                                    | Value / Where to find them                                                              |
-| ------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| `keycloak.uri`                                          | `http://localhost:8888/`                                                                |
-| `keycloak.realm`                                        | `mocap`                                                                                 |
-| `keycloak.clientId`                                     | `mocap-backend` (Can be found in **Clients** -> **Clients list**)                       |
-| `spring.security.oauth2.resourceserver.jwt.issuer-uri`  | `${keycloak.uri}/realms/${keycloak.realm}`                                              |
-| `spring.security.oauth2.resourceserver.jwt.jwk-set-uri` | `${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs` |
-
-### Build the theme jar locally
+## Build the theme jar locally
 
 To build the custom theme, **maven** is needed.
 
@@ -195,7 +191,7 @@ To build the custom theme, **maven** is needed.
     npm run build-theme-jar
     ```
 
-### Developing the theme
+## Developing the theme
 
 Currently not all the pages has custom theme. When developing the page, you need to know its structure. You can find the structure of the page [here](https://github.com/keycloak/keycloak/tree/78866df6d5053780bc9184fbdf7682f708147117/themes/src/main/resources/theme/base/login) or [here](https://github.com/keycloakify/keycloakify/tree/main/src/login/pages).
 
@@ -225,3 +221,54 @@ Currently not all the pages has custom theme. When developing the page, you need
         mockPageId: "login.ftl",
     });
     ```
+
+## Contributing
+
+-   Please fork this repository and create a pull request if you want to contribute.
+
+-   Please follow [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) when you commit!
+
+-   If you are using VSCode, you can install [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint), [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode), [Prettier ESLint](https://marketplace.visualstudio.com/items?itemName=rvest.vs-code-prettier-eslint), [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) extensions.
+
+-   For ESLint, you can add these to your `settings.json` in VSCode:
+
+    ```json
+        "[javascript]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode",
+            "editor.codeActionsOnSave": {
+                "source.fixAll.eslint": true
+            }
+        },
+        "[typescript]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode",
+            "editor.codeActionsOnSave": {
+                "source.fixAll.eslint": true
+            }
+        },
+        "[typescriptreact]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode",
+            "editor.codeActionsOnSave": {
+                "source.fixAll.eslint": true
+            }
+        },
+        "[json]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode",
+            "editor.codeActionsOnSave": {
+                "source.fixAll.eslint": true
+            }
+        },
+        "eslint.validate": ["javascript", "typescript", "typescriptreact"]
+    ```
+
+-   For Tailwind CSS IntelliSense, please add these to your `settings.json` in VSCode:
+
+    ```json
+        "files.associations": {
+            "*.css": "tailwindcss"
+        },
+        "editor.quickSuggestions": {
+        "strings": "on"
+        }
+    ```
+
+-   You can run `npm run format` to format your code.
