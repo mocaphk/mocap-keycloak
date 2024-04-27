@@ -1,8 +1,14 @@
 {
     "name": "mocap-keycloak",
     "version": "0.1.0",
-    "private": true,
     "type": "module",
+    "keywords": [
+        "keycloak",
+        "react",
+        "typscript"
+    ],
+    "author": "mocaphk",
+    "license": "GPL-3.0-only",
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
